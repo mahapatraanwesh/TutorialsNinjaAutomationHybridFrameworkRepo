@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="SeleniumAutomation">
+<listeners>
+<listener class-name="seleniumAutomation.listeners.Listeners"/><!-- packagename.classname-->
+</listeners>
+  <test name="Functionality Testcases">
+    <classes>
+      <class name="org.seleniumAutomation.RegisterTest"/>
+      <class name="org.seleniumAutomation.LoginTest"/>
+    </classes>
+  </test> <!-- Functionality Testcases -->
+</suite> <!-- SeleniumAutomation -->

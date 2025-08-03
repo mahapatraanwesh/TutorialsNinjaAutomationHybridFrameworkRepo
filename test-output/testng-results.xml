@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-08-03T23:21:20 IST" name="Default suite" finished-at="2025-08-03T23:21:24 IST" duration-ms="4652">
+    <groups>
+    </groups>
+    <test started-at="2025-08-03T23:21:20 IST" name="Default test" finished-at="2025-08-03T23:21:24 IST" duration-ms="4652">
+      <class name="org.seleniumAutomation.RegisterTest">
+        <test-method is-config="true" signature="startUp()[pri:0, instance:org.seleniumAutomation.RegisterTest@6aeb35e6]" started-at="2025-08-03T23:21:20 IST" name="startUp" finished-at="2025-08-03T23:21:24 IST" duration-ms="3857" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startUp -->
+        <test-method signature="verifyWarningMessageDisplayed()[pri:3, instance:org.seleniumAutomation.RegisterTest@6aeb35e6]" started-at="2025-08-03T23:21:24 IST" name="verifyWarningMessageDisplayed" finished-at="2025-08-03T23:21:24 IST" duration-ms="565" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyWarningMessageDisplayed -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.seleniumAutomation.RegisterTest@6aeb35e6]" started-at="2025-08-03T23:21:24 IST" name="tearDown" finished-at="2025-08-03T23:21:24 IST" duration-ms="193" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- org.seleniumAutomation.RegisterTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
