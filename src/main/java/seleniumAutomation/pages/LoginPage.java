@@ -18,6 +18,9 @@ public class LoginPage {
 	@FindBy(xpath="//input[@value='Login']")
 	private WebElement loginButton;
 	
+	@FindBy(css=".alert-danger")
+	private WebElement invalidCredentialsWarningText;
+	
 	public LoginPage(WebDriver driver)
 	{
 		this.driver=driver;
@@ -38,6 +41,21 @@ public class LoginPage {
 	{
 		loginButton.click();
 		return new Accountpage(driver);
+	}
+	
+	public Accountpage logInToApplication(String email,String password)
+	{
+		emailAddress.sendKeys(email);
+		validPassword.sendKeys(password);
+		loginButton.click();
+		return new Accountpage(driver);
+	}
+	
+	public boolean verifyWarningMessageWithInvalidCredentials(String expectedInvalidCredentialsWarningText)
+	{
+		String actualInvalidCredentialsWarningText = invalidCredentialsWarningText.getText();
+		boolean bool = actualInvalidCredentialsWarningText.contains(expectedInvalidCredentialsWarningText);
+		return bool;
 	}
 
 }

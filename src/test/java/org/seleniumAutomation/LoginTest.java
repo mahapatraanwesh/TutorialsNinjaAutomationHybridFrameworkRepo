@@ -16,14 +16,13 @@ import seleniumAutomation.utils.Utilities;
 public class LoginTest extends Base {
 	public WebDriver driver;
 	LoginPage loginpage;
-	
-	public LoginTest()
-	{
+
+	public LoginTest() {
 		super();
 	}
+
 	@BeforeMethod
-	public void startUp()
-	{
+	public void startUp() {
 		driver = launchBrowserAndInitializeURL(prop.getProperty("browserName"));
 		Homepage homepage = new Homepage(driver);
 		homepage.clickOnMyAccount();
@@ -31,32 +30,37 @@ public class LoginTest extends Base {
 	}
 
 	@AfterMethod
-	public void tearDown()
-	{
+	public void tearDown() {
 		driver.quit();
 	}
-	@Test(priority=1,dataProvider="validTestCredentials")
-	public void verifyLogInToApplicationUsingValidCredentials(String email, String password)
-	{
+
+	@Test(priority = 1, dataProvider = "validTestCredentials")
+	public void verifyLogInToApplicationUsingValidCredentials(String email, String password) {
 		loginpage.enterValidEmailAddress(email);
 		loginpage.enterValidPassword(password);
 		Accountpage accountpage = loginpage.clickOnLogInButton();
 		boolean bool = accountpage.verifyEditYourAccountInfoLinkIsDisplayed();
-		
+
 		Assert.assertTrue(bool);
 		System.out.println(driver.getTitle());
-		
-		
+
 	}
-	//To provide data in hardcoded way using DataProvider
+
+	// To provide data in hardcoded way using DataProvider
 	@DataProvider
-	public Object[][] validTestCredentials()
-	{
+	public Object[][] validTestCredentials() {
 //		Object [][] data = {{"testamFri_Aug_01_21_08_08_IST_2025@gmail.com","12345"},
 //				{"testamFri_Aug_01_21_54_28_IST_2025@gmail.com","12345"}};
-		
+
 		Object[][] data = Utilities.getDataFromExcel("Login");
 		return data;
-		
+
+	}
+
+	@Test(priority=2)
+	public void verifyLoginByProvidingInvalidCredentials(String email, String password) {
+		loginpage.logInToApplication(dataProp.getProperty("invalidEmail"), dataProp.getProperty("invalidPassword"));
+		loginpage.verifyWarningMessageWithInvalidCredentials(dataProp.getProperty("invalidCredentialsWarningMessage"));
+
 	}
 }
